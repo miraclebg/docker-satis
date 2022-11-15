@@ -6,7 +6,8 @@ services:
     container_name: satis
     hostname: satis
     networks:
-      - webproxy
+      webproxy:
+        ipv4_address: ${PROXY_IP_ADDRESS}
     restart: unless-stopped
     volumes:
       - "/var/tmp/composer:/var/www/.composer"
