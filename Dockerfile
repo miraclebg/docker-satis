@@ -66,10 +66,10 @@ RUN chmod +x /app/scripts/composer_install.sh \
 ##
 ## Install from dist
 ##
-ADD https://github.com/ludofleury/satisfy/archive/3.4.0.zip /
-RUN unzip 3.4.0.zip \
-    && mv /satisfy-3.4.0 /satisfy \
-    && rm -rf 3.4.0.zip
+ADD https://github.com/ludofleury/satisfy/archive/3.4.1.zip /
+RUN unzip 3.4.1.zip \
+    && mv /satisfy-3.4.1 /satisfy \
+    && rm -rf 3.4.1.zip
 
 ##
 ##
@@ -85,7 +85,7 @@ RUN unzip 3.4.0.zip \
 
 RUN cd /satisfy \
     && composer install --no-dev -n --optimize-autoloader \
-    && composer update composer/composer composer/satis \
+    #&& composer update composer/composer composer/satis \
     && chmod -R 777 /satisfy
 
 ADD scripts/crontab /etc/cron.d/satis-cron
