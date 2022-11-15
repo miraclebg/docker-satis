@@ -7,6 +7,7 @@ services:
     hostname: satis
     networks:
       - webproxy
+    restart: unless-stopped
     volumes:
       - "/var/tmp/composer:/var/www/.composer"
       - "~/.ssh/id_rsa:/var/tmp/id"
